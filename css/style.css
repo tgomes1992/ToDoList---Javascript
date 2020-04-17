@@ -1,3 +1,25 @@
 body{
     background-color: aliceblue;
 }
+
+
+/* Detalhes formulário */
+
+.item-form{
+    margin: 10px;
+}
+
+.cadastro-atividades{
+    margin: 0 auto;
+    justify-content: center;
+}
+
+
+
+#detalhe-atividade{
+    width:250px;
+    height: 50px;
+}
+
+
+
