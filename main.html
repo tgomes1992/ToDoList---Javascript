@@ -1,23 +1,29 @@
 <html>
 <head>
 <meta charset="utf8">
+<link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet"> 
 <link href="css/style.css" rel="stylesheet">
 </head>
     <body>
     <form class="cadastro-atividades">
-        <h2>Digite a Nova Atividade</h2>
+        <h2 class="titulo-form">Digite a Nova Atividade</h2>
         <div class="item-form">
-            <label for="nome">Atividade:</label>
+            <label for="nome">Atividade</label>
             <input type="text" id="atividade"></input>
         </div>
         <div class="item-form">
-            <label for="msg" class="justify">Deadline:</label>
+            <label for="nome">Descrição Atividade</label>
+            <textarea type="text" id="detalhe-atividade"></textarea>
+        </div>
+        <div class="item-form">
+            <label for="msg" class="justify">Deadline</label>
             <input type="date" name="data" id="deadline"></input>
         </div>
         <button class="botao-atividade" id="cadastroAtividade">Adicionar Atividade</button>
     </form>
 
     <div class="itens">
+        <h2>Atividades</h2>
         <ul class="lista-atividades" id="atividades">
         </ul>
     </div>

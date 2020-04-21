@@ -3,10 +3,30 @@ body{
 }
 
 
+
+
 /* Detalhes formulário */
+
+label{
+    text-align: center;
+    font-family: 'cortana';
+    font-size: 30px;
+}
+
+
+.titulo-form{
+    font-family: 'Bangers', cursive;
+    font-size: 28px;
+}
+
+
 
 .item-form{
     margin: 10px;
+    display: grid;
+    height: 50px;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: 50px;
 }
 
 .cadastro-atividades{
@@ -14,12 +34,29 @@ body{
     text-align: center;
 }
 
-
-
-#detalhe-atividade{
-    width:250px;
+#deadline{
+    width: 150px;
     height: 50px;
 }
+
+#atividade{
+    width: 150px;
+    height: 35px;
+}
+
+.botao-atividade{
+    border-radius: 50%;
+    width: 150px;
+    height: 100px;
+    color: slateblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 15px;
+}
+
+/* #detalhe-atividade{
+    width:250px;
+    height: 50px;
+} */
 
 
 
