@@ -6,26 +6,39 @@
 </head>
     <body>
     <form class="cadastro-atividades">
-        <h2 class="titulo-form">Digite a Nova Atividade</h2>
-        <div class="item-form">
-            <label for="nome">Atividade</label>
-            <input type="text" id="atividade"></input>
-        </div>
-        <div class="item-form">
-            <label for="nome">Descrição Atividade</label>
-            <textarea type="text" id="detalhe-atividade"></textarea>
-        </div>
-        <div class="item-form">
-            <label for="msg" class="justify">Deadline</label>
-            <input type="date" name="data" id="deadline"></input>
-        </div>
+        <h2 class="titulo">Digite a Nova Atividade</h2>
+    <div class="format">
+            <div class="item-form">
+                <label for="nome">Atividade</label>
+                <input type="text" id="atividade"></input>
+            </div>
+            <div class="item-form">
+                <label for="msg">Descrição</label>
+                <textarea type="text" id="detalhe-atividade"></textarea>
+            </div>
+            <div class="item-form">
+                <label for="msg" class="justify">Deadline</label>
+                <input type="date" name="data" id="deadline" ></input>
+            </div>
+    </div>
         <button class="botao-atividade" id="cadastroAtividade">Adicionar Atividade</button>
     </form>
 
     <div class="itens">
-        <h2>Atividades</h2>
-        <ul class="lista-atividades" id="atividades">
-        </ul>
+        <h2 class="titulo">Atividades</h2>
+        <table class ="lista-atividades"  id="atividades" width="100%">
+        <tr class="tabela-head">
+            <th>Atividade</th>
+            <th>Descrição</th>
+            <th>Prazo</th>
+        </tr>
+        <tr class="atividade">
+            <!-- <td class="nome-atividade">Ir ao Médico</td>
+            <td class="descri-atividade">Ir ao Médico oftalmologista para fazer exame</td>
+            <td class="prazo-atividade">27/08/1992</td>
+            <td><button class="botao">teste</button></td> -->
+        </tr>
+        </table>
     </div>
 
     </body>
