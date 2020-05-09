@@ -24,7 +24,7 @@ function formatardata(){
 
 function criarbotaoexclusao(){
    let botao = document.createElement("button")
-   botao.textContent="Botão Remover"
+   botao.textContent="Remover"
    botao.addEventListener("click",()=>{
       var exclusao = botao.parentNode
       exclusao.remove()
