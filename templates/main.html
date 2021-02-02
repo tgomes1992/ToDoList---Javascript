@@ -1,0 +1,53 @@
+<html>
+<head>
+    <meta charset="utf8">
+    <link href="https://fonts.googleapis.com/css?family=Bangers&display=swap" rel="stylesheet"> 
+    <link href="../css/materialize.css" rel="stylesheet">
+    <link href="../static/css/css" rel="stylesheet">
+</head>
+    <body>
+        <form class="cadastro-atividades" action='/cadastrar_atividade' method="post">
+                <h2 class="titulo">Digite a Nova Atividade</h2>
+                 <div class="item-form">
+                    <label for="nome">Atividade</label>
+                    <input type="text" name="atividade" id="nome"></input>
+                </div>
+
+                <div class="item-form">
+                    <label for="msg">Descrição</label>
+                    <textarea type="text"  name="description"id="msg"></textarea>
+                </div>
+
+                <div class="item-form">
+                    <label for="deadline" class="justify">Deadline</label>
+                    <input type="date" name="data" id="deadline" ></input>
+                </div>
+            <input class="botao-atividade" id="cadastroAtividade" type="submit" value='Adicionar Atividade'/>
+        </form>
+                        
+ 
+        <div class="itens">
+            <h2 class="titulo">Atividades</h2>
+            <table class ="lista-atividades"  id="atividades" width="100%">
+            <tr class="tabela-head">
+                <th>Atividade</th>
+                <th>Descrição</th>
+                <th>Prazo</th>
+            </tr>
+            {% for atividade in atividades %}
+            <tr class="atividade">                
+                    <td class="nome-atividade">{{atividade.atividade}}</td>
+                    <td class="descri-atividade">{{atividade.descricao}}</td>
+                    <td class="prazo-atividade">{{atividade.deadline}}</td>
+                    <td> <button class="modificar">Modificar Atividade</button>
+                    <button class="remover">Deletar Atividade</button></td>
+            </tr>
+                      
+            {% endfor %}
+            </table>
+        </div>
+    </body>
+<script src="../static/js/app.js""></script>
+</html>
+
+x'

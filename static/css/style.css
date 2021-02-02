@@ -1,0 +1,75 @@
+body{
+    background-color: aliceblue;
+}
+
+.titulo{
+    font-family: 'Bangers', cursive;
+    font-size: 28px;
+    margin: 0 auto;
+    text-align :center;
+
+}
+
+.itens{
+    margin-top: 3%;
+}
+
+/* Detalhes formulário */
+
+label{
+    font-family: 'cortana';
+    font-size: 20px;
+    align-items: flex-start;
+}
+
+
+.item-form{
+    margin: 10px;
+    height: 50px;
+}
+
+.cadastro-atividades{
+    margin: 0 auto;
+    text-align: center;
+}
+
+
+#atividade{
+    width: auto;
+    height: auto;
+}
+
+
+#detalhe-atividade{
+    width:auto;
+    height: auto;
+    clear: left;
+}
+
+#deadline{
+    width: auto;
+    height: auto;
+}
+
+
+.botao-atividade{
+    border-radius: 50%;
+    width: 150px;
+    height: 100px;
+    color: slateblue;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    margin: 15px;
+}
+
+.format{
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+/* Tabela Lista de Atividades */
+
+tr{
+    text-align: center;
+    border: 1px solid black;
+}
