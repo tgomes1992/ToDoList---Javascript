@@ -1,5 +1,6 @@
 import os
-from flask import Flask,render_template,request,redirect,url_for,jsonify
+from help import create_file
+from flask import Flask,render_template,request,redirect,url_for,jsonify,send_file
 from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import  Migrate
 import sys
@@ -36,6 +37,7 @@ def date_sql(data):
 
 #endpoints
 
+
 @app.route('/')
 def index():
     atividades = Atividades.query.all()
@@ -49,6 +51,48 @@ def cadastro():
     db.session.commit()
     db.session.close()
     return redirect(url_for('index'))
+
+
+@app.route("/modificar/<id>",methods=['POST'])
+def modificar(id):
+    atividade = Atividades.query.get(id)
+    atividade.atividade = request.form.get("atividade")
+    atividade.descricao = request.form.get("description")
+    atividade.deadline = date_sql(request.form.get('data'))
+    db.session.commit()
+    db.session.close()
+    resposta = request.form.get('data')
+    return redirect(url_for('index'))
+
+@app.route("/excluir/<id>",methods=['POST'])
+def remover(id):
+    print(id)
+    atividade = Atividades.query.get(id)
+    db.session.delete(atividade)
+    db.session.commit()
+    db.session.close()
+    return redirect(url_for('index'))
+
+
+
+@app.route("/get_atividade/<id>",methods=['GET'])
+def buscar_atividades(id):
+    resposta = id
+    atividade = Atividades.query.get(id)
+    json = {
+        'id': atividade.id,
+        'atividade':atividade.atividade,   
+        'descricao': atividade.descricao,    
+        'deadline': atividade.deadline 
+    }
+    return json
+
+
+
+
+@app.route("/get_file/",methods=['GET'])  
+def get_file():
+    return send_file(create_file(),attachment_filename="teste.txt",as_attachment=True)
 
 
 

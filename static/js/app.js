@@ -1,99 +1,63 @@
 // variáveis gerais
 
 const botao = document.querySelector('#cadastroAtividade');
-const form = document.querySelector(".cadastro-atividades")
-let tabela = document.querySelector('#atividades')
-let prazo = document.querySelector("#deadline")
-let nomeatividade = document.querySelector("#atividade")
-let detalheAtividade = document.querySelector("#detalhe-atividade")
+const form = document.querySelector(".cadastro-atividades");
+let tabela = document.querySelector('#atividades');
+
+let detalheAtividade = document.querySelector("#detalhe-atividade");
+let modificar = document.querySelectorAll('.modificar')
+let deadline = document.querySelectorAll(".prazo-atividade")
+let remover = document.querySelectorAll('.remover')
 
 
-//funções
+// execuções obrigatórias
 
-function formatardata(){
-   let data = prazo.value
-   let ano = data.slice(0,4)
-   let mes = data.slice(5,7)
-   let dia  = data.slice(8,10)
-   let dataTotal = dia +"/"+mes+"/"+ano
-   return dataTotal
-}
 
-// criação de itens
-// criação botao de exclusao
 
-function criarbotaoexclusao(){
-   let botao = document.createElement("button")
-   botao.textContent="Remover"
-   botao.addEventListener("click",()=>{
-      var exclusao = botao.parentNode
-      exclusao.remove()
+
+
+for (i=0; i<modificar.length ; i++){
+   let atividade = document.querySelector("#nome")
+   let description = document.querySelector("#msg")
+   let deadline = document.querySelector("#deadline")
+   let dataid = modificar[i].getAttribute('data-id')
+   modificar[i].addEventListener('click',()=>{
+      $.get('/get_atividade/'+dataid,(data)=>{
+         botao.value = "Concluir Modificação"
+         form.setAttribute('action','/modificar/'+dataid)
+         let date = new Date(data['deadline']).toISOString().substr(0,10)
+         atividade.value = data['atividade']
+         description.value = data['descricao']
+         deadline.value = date
+      })
    })
-
-return botao
-
 }
 
-// criação botao de modificação
 
-function criarbotaomodificar(){
-   let butao = document.createElement("button")
-   butao.className="modificar"
-   butao.textContent="Modificar Atividade"
-      butao.addEventListener("click",()=>{
-         botao.textContent = "Atualizar Atividade"
-         botao.addEventListener("click",()=>{
-               let excluir = butao.parentNode
-               excluir.remove()
-               botao.textContent = "Adicionar Atividade"
-            })
-         let modificar = butao.parentNode.childNodes
-         let data = modificar[2].textContent
-         let datatrans = data.slice(6,10)+"-"+data.slice(3,5)+"-"+data.slice(0,2)
-         nomeatividade.value  = modificar[0].textContent
-         detalheAtividade.value= modificar[1].textContent
-         console.log(datatrans)
-         prazo.value = datatrans
-   })
-return butao
+for(i=0;i<deadline.length;i++){
+   let ndate =deadline[i].textContent.substring(8,10) + "/" + deadline[i].textContent.substring(6,7) + "/"+ deadline[i].textContent.substring(0,4)
+   deadline[i].textContent = ndate
 }
 
-// cria o tr da atividade
 
-function criarTrAtividade(){
-   let trAtividade = document.createElement("tr")
-   let tdAtividade = document.createElement("td")
-   let tddetalhe = document.createElement("td")
-   let tdprazo = document.createElement("td")
-   let botaodelete = criarbotaoexclusao()
-   let botaomodificar = criarbotaomodificar()
-   tdAtividade.textContent = nomeatividade.value
-   tddetalhe.textContent = detalheAtividade.value
-   tdprazo.textContent = formatardata()
-   trAtividade.append(tdAtividade,tddetalhe,tdprazo,botaodelete,botaomodificar)
-   return trAtividade
-}
 
-//principais
-
-//cria ativade
-function criarAtividade(){
-   tabela.appendChild(criarTrAtividade())
-   form.reset()
-   console.log("Nova Atividade Cadastrada")
-}
-
-function cadastroDefault(){
-
-   botao.textContent = "Adicionar Atividade"
-   botao.addEventListener('click',()=>{
-      criarAtividade()
+for (i=0;i<remover.length;i++){
+   
+   let id = remover[i].getAttribute('data-id')
+   remover[i].addEventListener("click",()=>{
+      let msg = confirm('Deseja Realmente Excluir Essa Atividade');
       
+      if(msg== true){         
+         $.post("/excluir/"+id,()=>{
+            document.location.reload(true);
+
+         })
+         console.log("Exclusão Confirmada")
+      } else {
+         console.log("Exclusão não confirmada")
+      }
    })
 
+
 }
-
-// eventos
-
-cadastroDefault()
 

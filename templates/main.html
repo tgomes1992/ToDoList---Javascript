@@ -24,10 +24,7 @@
                 </div>
             <input class="botao-atividade" id="cadastroAtividade" type="submit" value='Adicionar Atividade'/>
         </form>
-
-        <a href="/get_file" target="blank"><button id="get_file">teste get file</button></a>
-                        
- 
+  
         <div class="itens">
             <h2 class="titulo">Atividades</h2>
             <table class ="lista-atividades"  id="atividades" width="100%">
@@ -41,8 +38,8 @@
                     <td class="nome-atividade">{{atividade.atividade}}</td>
                     <td class="descri-atividade">{{atividade.descricao}}</td>
                     <td class="prazo-atividade">{{atividade.deadline}}</td>
-                    <td> <button class="modificar">Modificar Atividade</button>
-                    <button class="remover">Deletar Atividade</button></td>
+                    <td> <button class="modificar" data-id={{atividade.id}}>Modificar Atividade</button>
+                    <button class="remover" data-id={{atividade.id}}> Deletar Atividade</button></td>
             </tr>
                       
             {% endfor %}
@@ -50,7 +47,6 @@
         </div>
     </body>
 <script src="../static/js/app.js""></script>
-<script src="../static/js/file_test.js""></script>
 <script src="../static/js/jquery.js""></script>
 </html>
 
