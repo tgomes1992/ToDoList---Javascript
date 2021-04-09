@@ -1,58 +1,53 @@
-body{
+body {
     background-color: aliceblue;
 }
 
-.titulo{
+.titulo {
     font-family: 'Bangers', cursive;
     font-size: 28px;
     margin: 0 auto;
-    text-align :center;
-
+    text-align: center;
 }
 
-.itens{
+.itens {
     margin-top: 3%;
 }
 
+
 /* Detalhes formulário */
 
-label{
+label {
     font-family: 'cortana';
     font-size: 20px;
     align-items: flex-start;
 }
 
-
-.item-form{
+.item-form {
     margin: 10px;
-    height: 50px;
 }
 
-.cadastro-atividades{
+.cadastro-atividades {
     margin: 0 auto;
     text-align: center;
 }
 
-
-#atividade{
+#atividade {
     width: auto;
     height: auto;
 }
 
-
-#detalhe-atividade{
-    width:auto;
+#detalhe-atividade {
+    width: auto;
     height: auto;
     clear: left;
 }
 
-#deadline{
+#deadline {
     width: auto;
     height: auto;
 }
 
-
-.botao-atividade{
+.botao-atividade {
     border-radius: 50%;
     width: 150px;
     height: 100px;
@@ -61,15 +56,16 @@ label{
     margin: 15px;
 }
 
-.format{
+.format {
     display: flex;
     justify-content: center;
     align-content: center;
 }
 
+
 /* Tabela Lista de Atividades */
 
-tr{
+tr {
     text-align: center;
     border: 1px solid black;
 }
